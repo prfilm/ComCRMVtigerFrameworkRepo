@@ -34,7 +34,7 @@ public class GetProductInfoByDataProviderTest {
 		ExcelUtility eLib = new ExcelUtility();
 		int rowCount = eLib.getRowcount("amazon_product");
 		Object[][] objArr = new Object[rowCount][2];
-		
+		System.out.println("========productName="+eLib.getDataFRomExcel("amazon_product",1, 0));
 		for(int i = 0; i<rowCount;i++) {	
 		objArr[i][0]= eLib.getDataFRomExcel("amazon_product",i+1, 0);
 		objArr[i][1]= eLib.getDataFRomExcel("amazon_product", i+1, 1);

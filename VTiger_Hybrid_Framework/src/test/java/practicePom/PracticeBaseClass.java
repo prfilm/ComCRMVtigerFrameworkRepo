@@ -28,7 +28,7 @@ public class PracticeBaseClass {
 	
 	@Parameters("browser")
 	@BeforeClass
-	public void LaunchBrowser(@Optional ("optionalbrowser") String BROWSER) {
+	public void LaunchBrowser(@Optional ("chrome") String BROWSER) {
 		System.out.println("BEforeCalss executed");
 		
 		if(BROWSER.equals("chrome")) {

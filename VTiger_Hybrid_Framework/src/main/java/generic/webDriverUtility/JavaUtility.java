@@ -1,6 +1,8 @@
 package generic.webDriverUtility;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Random;
@@ -29,5 +31,20 @@ public class JavaUtility {
 		String Value = sdf.format(d);
 		return Value;	
 	}
+	
+	public String getSystemDateddMMyyyy() {
+		LocalDate date = LocalDate.now();
+		DateTimeFormatter df =  DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		String currentDate = date.format(df);
+		return currentDate;
+	}
+	public String getRequiredDateMMddyyyy(int days) {
+		LocalDate date = LocalDate.now().plusDays(days);
+		DateTimeFormatter df =  DateTimeFormatter.ofPattern("MM-dd-yyyy");
+		String finalDate = date.format(df);
+		return finalDate;		
+	}
+	
+	
 
 }

@@ -10,6 +10,8 @@ import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Listeners;
+import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
 import generic.databaseUtility.DataBaseUtility;
@@ -21,6 +23,7 @@ import generic.webDriverUtility.WebDriverUtility;
 import objectRepositoryUtility.HomePage;
 import objectRepositoryUtility.LoginPage;
 
+@Listeners(listenerUtility.ListenerImplementation.class)
 public class BaseClass {
 	public DataBaseUtility dbLib = new DataBaseUtility();
 	public FileUtility fLib = new FileUtility();
@@ -38,7 +41,7 @@ public class BaseClass {
 
 	@Parameters("BROWSER")
 	@BeforeClass(alwaysRun =true)
-	public void configBC(String browser) throws Throwable {
+	public void configBC(@Optional ("chrome") String browser) throws Throwable {
 		String BROWSER = browser;
 				// fLib.getDataFromPropertiesFile("browser");
 		if (BROWSER.equals("chrome")) {
@@ -50,7 +53,7 @@ public class BaseClass {
 		} else {
 			driver = new ChromeDriver();
 		}
-		sdriver = driver;
+		//sdriver = driver;
 		UtilityClassObject.setDriver(driver);
 		System.out.println("==Launch Browser===");
 		wLib.maximizeWindow(driver);
@@ -70,7 +73,8 @@ public class BaseClass {
 
 	@AfterMethod(alwaysRun =true)
 	public void configAM() throws Throwable {
-		try{HomePage hp = new HomePage(driver);
+		try{
+		HomePage hp = new HomePage(driver);
 		wLib.waitForPageToLoad(driver);
 		hp.logOutOperation();
 		System.out.println("==Logout==");

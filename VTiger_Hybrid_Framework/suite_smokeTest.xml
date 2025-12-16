@@ -11,7 +11,7 @@
 			<class name="organizationTest.CreateOrganizationTest" />
 			<class name="contactTest.CreateContactTest" />
 			<class name="organizationTest.DeleteOrganizationTest" />
-			<class name="organizationTest.CreateOrganizationTestTest" />
+			<class name="organizationTest.CreateOrganizationTest" />
 		</classes>
 	</test> <!--
 	Test -->

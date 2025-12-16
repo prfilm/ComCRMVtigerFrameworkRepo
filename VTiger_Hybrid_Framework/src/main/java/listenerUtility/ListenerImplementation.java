@@ -61,7 +61,7 @@ public class ListenerImplementation implements ITestListener, ISuiteListener {
 	public void onTestFailure(ITestResult result) {
 
 		String testName = result.getMethod().getMethodName();
-		TakesScreenshot edriver = (TakesScreenshot) BaseClass.sdriver;
+		TakesScreenshot edriver = (TakesScreenshot) UtilityClassObject.getDriver();
 		String filepath = edriver.getScreenshotAs(OutputType.BASE64);
 		String timeStamp = new Date().toString().replace(" ", "_").replace(":", "_");
 		test.addScreenCaptureFromBase64String(filepath,testName+timeStamp);
