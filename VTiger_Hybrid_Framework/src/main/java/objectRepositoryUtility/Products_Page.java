@@ -10,4 +10,7 @@ public class Products_Page {
 	
 	@FindBy(name="search_text")
 	private WebElement searchTextfeild;
+	
+	@FindBy(name="submit")
+	private WebElement searchButton;
 }
